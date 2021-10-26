@@ -1,0 +1,13 @@
+name = "TDD"
+uuid = "9672dae6-07ee-4679-9f2e-beb04d809d05"
+authors = ["binxu.wang <binxu.wang@wustl.edu> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
