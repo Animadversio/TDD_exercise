@@ -18,3 +18,10 @@ iv = Interval(-0.2,1)
 @test !issubset(Interval(0,1),Interval(-0.5,0.5))
 @test Interval(0,1) ⊆ Interval(0,2)
 @test !(Interval(0,1) ⊆ Interval(0.5,2))
+@test Interval(0,1) ⊈ Interval(0.5,2)
+@test !(Interval(0.5,1) ⊈ Interval(0,2))
+
+
+@test isempty(Interval(1,-1))
+@test isempty(Interval(1,-0.5))
+@test ~isempty(Interval(1,1))
