@@ -26,9 +26,10 @@ using Test
     @test all(i in TDD.get_neighbors(dir_graph, 3) for i in dir_graph[3])
     @test all(i in TDD.get_neighbors(dir_graph, 4) for i in dir_graph[4])
     for i in 1:length(dir_graph)
-        @test i in TDD.get_neighbors(dir_graph, i)
+        @test i in TDD.get_neighbors(dir_graph, i) # include the starting index as neighbor
     end
 
-    @test all(i in TDD.get_neighbors(graph, 1) for i in [1,2,3])
-    @test all(i in TDD.get_neighbors(graph, 1) for i in [1,2,3])
+    @test all(i in TDD.get_connected(graph, 1) for i in [1,2,3])
+    @test all(i in TDD.get_connected(graph, 4) for i in [4,5])
+    @test all(i in TDD.get_connected(dir_graph, 1) for i in 1:5)
 end
