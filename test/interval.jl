@@ -12,3 +12,7 @@ iv = Interval(-0.2,1)
 @test !(1.5 in iv)
 @test (1.0 ∈ iv)
 
+@test issubset(Interval(0,1),Interval(0,2))
+@test !issubset(Interval(0,1),Interval(0.5,2))
+@test !issubset(Interval(0,2),Interval(0.5,1))
+@test !issubset(Interval(0,1),Interval(-0.5,0.5))
