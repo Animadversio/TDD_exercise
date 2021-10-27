@@ -33,4 +33,4 @@ iv = Interval(-0.2,1)
 @test (Interval(1,1) ∩ Interval(-0.5,2)) == Interval(1,1)
 @test (Interval(1.1,1) ∩ Interval(1.05,2)) == Interval(1,-1)
 @test (Interval(1.1,1) ∩ Interval(1.05,2)) == TDD.∅
-@test (Interval(1,2) ∩ Interval(1.05,1.5)∩ Interval(0.7,1.3)) == ∩ Interval(1.05,1.3)
+@test (Interval(1,2) ∩ Interval(1.05,1.5) ∩ Interval(0.7,1.3)) == Interval(1.05,1.3)
