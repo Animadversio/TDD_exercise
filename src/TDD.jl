@@ -1,9 +1,26 @@
 module TDD
 using DataStructures
 # Write your package code here.
-function get_neighbors(graph, idx)::Set{Int}
+AdjMat = Matrix{Bool}
+NeighborList = Vector{Vector{Int}}
+
+function n_nodes(graph::NeighborList)
+    return length(graph)
+end
+
+function n_nodes(graph::AdjMat)
+    return size(graph,1)
+end
+
+function get_neighbors(graph::NeighborList, idx::Int)::Set{Int}
     # assume graph is represented in list format
     neighb = Set(graph[idx])
+    return push!(neighb,idx)
+end
+
+function get_neighbors(graph::AdjMat, idx::Int)::Set{Int}
+    # assume graph is represented in Adjacent matrix format
+    neighb = Set([i for (i, islink) in enumerate(graph[idx,:]) if islink])
     return push!(neighb,idx)
 end
 
@@ -24,9 +41,6 @@ function get_connected(graph, idx)::Set{Int}
     return connected
 end
 
-function n_nodes(graph)
-    return length(graph)
-end
 
 function connected_components(graph)
     components = []
