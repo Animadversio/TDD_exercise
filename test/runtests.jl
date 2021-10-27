@@ -36,4 +36,25 @@ using Test
     # Test for the 3rd problem 
     @test all(comp in TDD.connected_components(graph) for comp in [Set([1,2,3]),Set([4,5])])
     @test Set([1:5...]) in TDD.connected_components(dir_graph)
+
+    A = Bool[
+        1 1 1 0 0;
+        1 1 0 0 0;
+        1 0 1 0 0;
+        0 0 0 1 1;
+        0 0 0 1 1;]
+    
+    Adir = Bool[
+        0 1 0 0 0;
+        0 0 1 0 1;
+        0 0 0 1 0;
+        1 1 0 1 0;
+        0 0 0 1 0;]
+    @test all(i in TDD.get_neighbors(A, 1) for i in graph[1])
+    @test all(i in TDD.get_neighbors(A, 5) for i in graph[5])
+    @test all(i in TDD.get_neighbors(Adir, 3) for i in dir_graph[3])
+    @test all(i in TDD.get_neighbors(Adir, 4) for i in dir_graph[4])
+    for i in 1:TDD.n_nodes(Adir)
+        @test i in TDD.get_neighbors(Adir, i) # include the starting index as neighbor
+    end
 end
