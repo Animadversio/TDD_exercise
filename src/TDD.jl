@@ -24,4 +24,22 @@ function get_connected(graph, idx)::Set{Int}
     return connected
 end
 
+function n_nodes(graph)
+    return length(graph)
+end
+
+function connected_components(graph)
+    components = []
+    visited = Set{Int}([])
+    for i in 1:n_nodes(graph)
+        if (i in visited)
+            continue
+        end
+        comp = get_connected(graph, i)
+        push!(components, comp)
+        union!(visited, comp) 
+    end
+    return components
+end
+
 end

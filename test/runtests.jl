@@ -34,6 +34,6 @@ using Test
     @test all(i in TDD.get_connected(graph, 4) for i in [4,5])
     @test all(i in TDD.get_connected(dir_graph, 1) for i in 1:5)
     # Test for the 3rd problem 
-    @test all(i in TDD.connected_components(graph) for comp in [Set([1,2,3]),Set([4,5])])
+    @test all(comp in TDD.connected_components(graph) for comp in [Set([1,2,3]),Set([4,5])])
     @test Set([1:5...]) in TDD.connected_components(dir_graph)
 end
