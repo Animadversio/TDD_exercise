@@ -1,9 +1,10 @@
 module TDD
 
 # Write your package code here.
-function get_neighbors(graph, idx)
+function get_neighbors(graph, idx)::Set{Int}
     # assume graph is represented in list format
-    return push!(graph[idx],idx)
+    neighb = Set(graph[idx])
+    return push!(neighb,idx)
 end
 
 end
